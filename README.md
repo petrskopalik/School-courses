@@ -1,2 +1,2 @@
 # School-courses
-Personal projects and taksk related to the study of computer science at Palacký University Olomouc - UPOL
+Personal projects and tasks related to the study of computer science at Palacký University Olomouc - UPOL
