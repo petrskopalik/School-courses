@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block title %}Registrace{% endblock title %}
+{% block content %}
+<div class="content forms">
+    <form action="{{url_for('register')}}" method="POST">
+        {{ registerform.hidden_tag() }}
+        {{ registerform.username(placeholder="Přihlašovací jméno") }}
+        {{ registerform.password_one(placeholder="Heslo") }}
+        {{ registerform.password_two(placeholder="Potvrďte heslo") }}
+        {{ registerform.submit() }}
+    </form>
+</div>
+{% endblock content %}

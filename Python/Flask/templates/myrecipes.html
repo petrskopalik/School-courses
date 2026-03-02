@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block title %}Moje recepty{% endblock title %}
+{% block content %}
+    {% for recipe in recipes %}
+        <div class="content recipe">
+            <h4>{{ recipe.name }}</h4>
+            <span>{{ recipe.text }}</span>
+            <div class="foot">
+                <span><a href="{{url_for('delete_recipe', recipe_id=recipe.id)}}">Smazat</a></span>
+                <span>{{ recipe.created }}</span>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}

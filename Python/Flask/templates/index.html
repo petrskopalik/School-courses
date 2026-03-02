@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styly.css">
+    <script type="text/javascript" src="/static/js/script.js"></script>
+    <title>{% block title %}Hlavní stránka{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <h1>Nejlepší jídla k učení</h1>
+    </header>
+    <nav>
+        <a href="{{url_for('index')}}">Hlavní stránka</a>
+        {% if session["user"] %}
+            <a href="{{url_for('create_recipe')}}">Vytvořit recept</a>
+            <a href="{{url_for('myrecipes')}}">Moje recepty</a>
+            {% if session["role"] == "admin" %}
+                <a href="{{url_for('users')}}">Seznam uživatelů</a>
+            {% endif %}
+            <a href="{{url_for('logout')}}">Odhlášení</a>
+        {% else %}
+            <a href="{{url_for('login')}}">Příhlášení</a>
+            <a href="{{url_for('register')}}">Registrace</a>
+        {% endif %}
+        <a href="{{url_for('about')}}">O nás</a>
+    </nav>
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{category}}" role="alert">
+                    {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+            {% for recipe in recipes %}
+                <div class="content recipe">
+                    <h4>{{ recipe.name }}</h4>
+                    <span>{{ recipe.text }}</span>
+                    <div class="foot">
+                        <span>{{ recipe.creator.username }}</span>
+                        <span>
+                            {{ recipe.created }}
+                            {% if session["role"] == "admin" %}
+                                <a href="{{url_for('delete_recipe', recipe_id=recipe.id)}}">Smazat</a>
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock content %}
+    </main>
+</body>
+</html>

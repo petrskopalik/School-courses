@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block title %}Seznam uživatelů{% endblock title %}
+{% block content %}
+    <div class="content">
+        <form action="{{url_for('create_recipe')}}" method="POST">
+            {{createform.hidden_tag()}}
+            {{createform.name(placeholder="Název")}}
+            {{createform.text(placeholder="Můj úžasný recept")}}
+            {{createform.submit()}}
+        </form> 
+    </div>
+{% endblock content %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block title %}Seznam uživatelů{% endblock title %}
+{% block content %}
+    <div class="content">
+        <table>
+            <tr>
+                <th>Jméno</th>
+                <th>Role</th>
+                <th>Potvrzený</th>
+                <th>Smazat</th>
+            </tr>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                    <td>
+                        {% if user[3] %}
+                            <a href="{{url_for('authorize', user_id=user[0])}}">Ano</a>
+                        {% else %}
+                            <a href="{{url_for('authorize', user_id=user[0])}}">Ne</a>
+                        {% endif %}
+                    </td>
+                    <td><a href="{{url_for('delete_user', user_id=user[0])}}">Smazat</a></td>
+                </tr>
+            {% endfor %}
+        </table> 
+    </div>   
+{% endblock content %}
