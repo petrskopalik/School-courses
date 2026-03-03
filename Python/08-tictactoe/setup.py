@@ -4,6 +4,6 @@ setup(name='data',
      version='1.0',
      description='Burgers or pizza?',
      author='Petr Skopalik',
-     author_email='skoppe03@upol.cz',
+     author_email='random@random.com',
      packages=find_packages(),
     )
