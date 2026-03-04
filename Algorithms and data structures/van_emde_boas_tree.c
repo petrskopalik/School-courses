@@ -19,18 +19,32 @@ typedef struct veb_tree{
     node *root;
 } veb_tree;
 
-node* make_node(){
+node* make_cluster(int n){
+
+}
+
+node* make_node(int n){
+    node *new_node = malloc(sizeof(node));
+    assert(new_node);
+
+    new_node->n = (int)sqrt(n);
+    new_node->cluster = malloc(sizeof(node) * new_node->n);
+    assert(new_node->cluster);
+    new_node->max = NULL;
+    new_node->min = NULL;
+    new_node->summary = make_node(new_node->n);
+    new_node->cluster = make_cluster(new_node->n);
+
+
+    return new_node;
+}
+
+veb_tree* make_veb_tree(){
     veb_tree *new_tree = malloc(sizeof(veb_tree));
-    node *root = malloc(sizeof(node));
     assert(new_tree);
-    assert(root);
+    new_tree->root = make_node(u);
 
-    root->n = (int)sqrt(u);
-    root->cluster = malloc(sizeof(node) * root->n);
-    assert(root->cluster);
-
-
-    return root;
+    return new_tree;
 }
 
 int low(int x){
