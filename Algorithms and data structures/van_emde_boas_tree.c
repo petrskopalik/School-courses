@@ -10,7 +10,7 @@ double u = 16;
 typedef struct node{
     int n;
     struct node *summary;
-    struct node *cluster;
+    struct node **cluster;
     int min;
     int max;
 } node;
@@ -19,22 +19,29 @@ typedef struct veb_tree{
     node *root;
 } veb_tree;
 
-node* make_cluster(int n){
-
-}
-
 node* make_node(int n){
     node *new_node = malloc(sizeof(node));
     assert(new_node);
 
-    new_node->n = (int)sqrt(n);
-    new_node->cluster = malloc(sizeof(node) * new_node->n);
-    assert(new_node->cluster);
+    new_node->n = n;
+    if (n == 2){
+        new_node->cluster = NULL;
+        new_node->summary = NULL;
+    }
+    else {
+        int size = (int)sqrt(n);
+        
+        new_node->cluster = malloc(sizeof(node*) * size);
+        assert(new_node->cluster);
+
+        for (size_t i = 0; i < size; i++){
+            *(new_node->cluster + i) = make_node(size);
+        }
+
+        new_node->summary = make_node(size);
+    }
     new_node->max = NULL;
     new_node->min = NULL;
-    new_node->summary = make_node(new_node->n);
-    new_node->cluster = make_cluster(new_node->n);
-
 
     return new_node;
 }
