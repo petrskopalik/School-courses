@@ -1,0 +1,9 @@
+# --- C language ---
+# Executables
+*.out
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
