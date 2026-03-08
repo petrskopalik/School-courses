@@ -143,7 +143,7 @@ int node_successor(node *n, int x){
         }
         else {
             int succ_cluster = node_successor(n->summary, high(x, n->u));
-            if (succ_cluster != -1){
+            if (succ_cluster == -1){
                 return -1;
             }
             else {
@@ -248,13 +248,20 @@ int main(){
     veb_tree* tree = make_veb_tree(16);
     print_veb(tree);
 
+    // insert(tree, 2);
+    // insert(tree, 3);
+    // insert(tree, 4);
+    // insert(tree, 5);
+    // insert(tree, 7);
+    // insert(tree, 14);
+    // insert(tree, 15);
+
+
     insert(tree, 2);
-    insert(tree, 3);
-    insert(tree, 4);
     insert(tree, 5);
+    insert(tree, 6);
     insert(tree, 7);
-    insert(tree, 14);
-    insert(tree, 15);
+    insert(tree, 13);
 
     print_veb(tree);
 
