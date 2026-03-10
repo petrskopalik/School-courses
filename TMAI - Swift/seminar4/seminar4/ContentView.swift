@@ -195,7 +195,9 @@ struct ContentView: View {
                 TaskDetails()
                 DateSettings()
                 AditionalSettings()
+                
                 Spacer()
+
                 Button("Save") {
                     print("Uloženo")
                 }
