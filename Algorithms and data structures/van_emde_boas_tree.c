@@ -266,7 +266,8 @@ int main(){
     print_veb(tree);
 
     printf("Min: %d\nMax: %d\n", min(tree), max(tree));
-    printf("Successor: %d\n\n", successor(tree, 2));
+    printf("Successor pro 2: %d\n", successor(tree, 2));
+    printf("Successor pro 13: %d\n\n", successor(tree, 13));
 
     free_veb_tree(tree);
 
