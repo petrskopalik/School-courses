@@ -11,6 +11,14 @@ ENV/
 env.bak/
 venv.bak/
 
+# .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+.NET/*/UnitTest.cs
+
 # Swift
 *.xcodeproj/
 *.xcassets/
