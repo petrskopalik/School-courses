@@ -20,7 +20,6 @@ obj/
 .vs/
 *.user
 *.suo
-UnitTest.cs
 
 # Swift
 *.xcodeproj/
