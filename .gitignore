@@ -20,6 +20,7 @@ obj/
 .vs/
 *.user
 *.suo
+.fake
 
 # Swift
 *.xcodeproj/
