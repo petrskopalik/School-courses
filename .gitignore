@@ -2,6 +2,9 @@
 .vscode/
 .DS_Store
 
+# GitHub
+.github/
+
 # Environments
 .env
 .venv
@@ -17,7 +20,7 @@ obj/
 .vs/
 *.user
 *.suo
-.NET/*/UnitTest.cs
+UnitTest.cs
 
 # Swift
 *.xcodeproj/
