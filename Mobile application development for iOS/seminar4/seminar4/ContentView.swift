@@ -68,7 +68,7 @@ struct OnRepeat: View {
             Text("Date & Time")
                 .font(.headline)
                 .foregroundStyle(.darkGrey)
-                .padding(.leading, 26)
+                .padding(.leading, 25)
                 .padding(.top, 10)
                 .frame(alignment: .leading)
             List {
@@ -106,28 +106,22 @@ struct OffReapeat: View {
             Text("Date & Time")
                 .font(.headline)
                 .foregroundStyle(.darkGrey)
+                .padding(.leading, 25)
+                .padding(.top, 10)
                 .frame(alignment: .leading)
-                .padding([.leading, .top], 10)
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(.white)
-                VStack(spacing: 10) {
-                    Toggle("Repeat", isOn: $isRepeatOn)
-                    Divider()
-                    DatePicker("Date",
-                               selection: $dueDate,
-                               displayedComponents: .date)
-                    Divider()
-                    DatePicker("Time",
-                               selection: $dueTime,
-                               displayedComponents: .hourAndMinute)
-                }
-                .padding()
-                .textFieldStyle(.plain)
-                .font(.system(size: 20))
+            List {
+                Toggle("Repeat", isOn: $isRepeatOn)
+                DatePicker("Date",
+                           selection: $dueDate,
+                           displayedComponents: .date)
+                DatePicker("Time",
+                           selection: $dueTime,
+                           displayedComponents: .hourAndMinute)
             }
-            .frame(width: 370, height: 150)
-            .padding(.top, 10)
+            .font(.system(size: 20))
+            .frame(height: 220)
+            .padding(.top, -35)
+            .scrollContentBackground(.hidden)
         }
     }
 }
