@@ -48,20 +48,21 @@ struct TaskDetails: View {
     }
 }
 
-enum Frequency: String, CaseIterable, Identifiable {
-    case Hourly = "Hourly"
-    case Daily = "Daily"
-    case Weekly = "Weekly"
-    case Monthly = "Monthly"
-    var id: Self {self}
-}
-
 struct OnRepeat: View {
     @Binding var isRepeatOn: Bool
     @Binding var frequency: Frequency
     @Binding var startDate: Date
-    @Binding var endDate: Date
-    @Binding var times: String
+    @Binding var times: Int
+//    @Binding var dueTime: Date
+    
+    func incrementStep() {
+        times += 1
+    }
+
+    func decrementStep() {
+        times -= 1
+        if times < 1 {times = 0}
+    }
     
     var body: some View{
         VStack(alignment: .leading) {
@@ -73,26 +74,46 @@ struct OnRepeat: View {
                 .frame(alignment: .leading)
             List {
                 Toggle("Repeat", isOn: $isRepeatOn)
+                DatePicker("Start date",
+                           selection: $startDate,
+                           displayedComponents: .date)
+                    .font(.system(size: 20))
+//                DatePicker("Time",
+//                           selection: $dueTime,
+//                           displayedComponents: .hourAndMinute)
                 Picker("Frequency", selection: $frequency) {
                     ForEach(Frequency.allCases, id: \.self) { f in
                         Text(f.rawValue)
                     }
                 }
-                DatePicker("Start",
-                           selection: $startDate,
-                           displayedComponents: .date)
-                    .font(.system(size: 20))
-                TextField(
-                    "Times",
-                    text: $times
-                )
-                .keyboardType(.numberPad)
+                HStack {
+                    Text("Times: ")
+                    Stepper {
+                        ZStack(alignment: .center) {
+                            RoundedRectangle(cornerRadius: 15)
+                                .fill(Color(.systemGray6))
+                            TextField(
+                                "",
+                                value: $times,
+                                formatter: NumberFormatter()
+                            )
+                            .keyboardType(.numberPad)
+                            .multilineTextAlignment(.center)
+                        }
+                        .frame(width: 75)
+                    } onIncrement: {
+                        incrementStep()
+                    } onDecrement: {
+                        decrementStep()
+                    }
+                }
             }
             .font(.system(size: 20))
-            .frame(height: 260)
+            .frame(height: 265)
             .padding(.top, -35)
             .scrollContentBackground(.hidden)
         }
+        .scrollDisabled(true)
     }
 }
 
@@ -123,6 +144,7 @@ struct OffReapeat: View {
             .padding(.top, -35)
             .scrollContentBackground(.hidden)
         }
+        .scrollDisabled(true)
     }
 }
 
@@ -132,33 +154,16 @@ struct DateSettings: View {
     @State private var dueTime: Date = Date()
     @State private var frequency: Frequency = Frequency.Daily
     @State private var startDate: Date = Date()
-    @State private var endDate: Date = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
-    @State private var times: String = ""
+    @State private var times: Int = 0
     
     var body: some View {
         if (isRepeatOn){
-            OnRepeat(isRepeatOn: $isRepeatOn, frequency: $frequency, startDate: $startDate, endDate: $endDate, times: $times)
+            OnRepeat(isRepeatOn: $isRepeatOn, frequency: $frequency, startDate: $startDate, times: $times)
         }
         else {
             OffReapeat(isRepeatOn: $isRepeatOn, dueDate: $dueDate, dueTime: $dueTime)
         }
     }
-}
-
-enum Priority: String, CaseIterable, Identifiable {
-    case Low = "Low"
-    case Medium = "Medium"
-    case High = "High"
-    var id: Self {self}
-}
-
-enum Category: String, CaseIterable, Identifiable {
-    case Work = "Work"
-    case Completed = "Completed"
-    case Today = "Today"
-    case Recurring = "Recurring"
-    case Flasgged = "Flagged"
-    var id: Self {self}
 }
 
 struct AditionalSettings: View {
@@ -191,33 +196,35 @@ struct AditionalSettings: View {
             .padding(.top, -30)
             .scrollContentBackground(.hidden)
         }
+        .scrollDisabled(true)
     }
 }
 
 struct CreateTaskView: View {
     
     var body: some View {
-        ZStack(alignment: .top) {
-            Color(.systemGray6)
-                .ignoresSafeArea()
-            VStack {
-                TaskDetails()
-                DateSettings()
-                AditionalSettings()
-                
-                Spacer()
+        ScrollView {
+            ZStack(alignment: .top) {
+                VStack {
+                    TaskDetails()
+                    DateSettings()
+                    AditionalSettings()
+                    
+                    Spacer()
 
-                Button("Save") {
-                    print("Uloženo")
+                    Button("Save") {
+                        print("Uloženo")
+                    }
+                    .frame(width: 375, height: 60)
+                    .background(.myGreen)
+                    .foregroundStyle(.white)
+                    .font(.title)
+                    .bold()
+                    .cornerRadius(20)
                 }
-                .frame(width: 375, height: 60)
-                .background(.blue)
-                .foregroundStyle(.white)
-                .font(.title)
-                .bold()
-                .cornerRadius(20)
             }
         }
+        .background(Color(.systemGray6))
     }
 }
 

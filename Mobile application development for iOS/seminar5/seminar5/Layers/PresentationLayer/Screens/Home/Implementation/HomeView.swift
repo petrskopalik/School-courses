@@ -103,62 +103,68 @@ struct ShortCutView: View {
 
 struct HomeView: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 10){
-            Text("Tasks")
-                .font(.title)
-                .fontWeight(.bold)
-            VStack(spacing: 15){
-                TaskView(
-                    mainTitle: "Finish Project Report",
-                    subTitle: "Submit before meeting",
-                    threatLevel: "!!!",
-                    date: "Feb 25, 2026",
-                    iconName: "text.document",
-                    type: "One-time",
-                    typeColor: Color.mint)
-                TaskView(
-                    mainTitle: "Gym Session",
-                    subTitle: "Leg day",
-                    threatLevel: "!",
-                    date: "Feb 26, 2026",
-                    iconName: "figure.run",
-                    type: "Recurring",
-                    typeColor: Color.myRed)
-                TaskView(
-                    mainTitle: "Prepare Lecture",
-                    subTitle: "SwiftUI - State & Binding",
-                    threatLevel: "!!!",
-                    date: "Feb 25, 2026",
-                    iconName: "graduationcap",
-                    type: "Recurring",
-                    typeColor: Color.myPurple)
-            }
-            Text("Shortcuts")
-                .font(.title)
-                .fontWeight(.bold)
-            HStack(spacing: 10){
-                ShortCutView(
-                    color: Color.myPurple,
-                    status: "Today",
-                    iconName: "25.calendar",
-                    count: "11")
-                ShortCutView(
-                    color: Color.myRed,
-                    status: "Recurring",
-                    iconName: "calendar",
-                    count: "2")
-            }
-            HStack(spacing: 10){
-                ShortCutView(
-                    color: Color.myYellow,
-                    status: "Flagged",
-                    iconName: "flag",
-                    count: "3")
-                ShortCutView(
-                    color: Color.myGreen,
-                    status: "Completed",
-                    iconName: "checkmark",
-                    count: "5")
+        ScrollView {
+            ZStack {
+//                Color(.systemGray6)
+//                    .ignoresSafeArea(.all)
+                VStack(alignment: .leading, spacing: 10){
+                    Text("Tasks")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    VStack(spacing: 15){
+                        TaskView(
+                            mainTitle: "Finish Project Report",
+                            subTitle: "Submit before meeting",
+                            threatLevel: "!!!",
+                            date: "Feb 25, 2026",
+                            iconName: "text.document",
+                            type: "One-time",
+                            typeColor: Color.mint)
+                        TaskView(
+                            mainTitle: "Gym Session",
+                            subTitle: "Leg day",
+                            threatLevel: "!",
+                            date: "Feb 26, 2026",
+                            iconName: "figure.run",
+                            type: "Recurring",
+                            typeColor: Color.myRed)
+                        TaskView(
+                            mainTitle: "Prepare Lecture",
+                            subTitle: "SwiftUI - State & Binding",
+                            threatLevel: "!!!",
+                            date: "Feb 25, 2026",
+                            iconName: "graduationcap",
+                            type: "Recurring",
+                            typeColor: Color.myPurple)
+                    }
+                    Text("Shortcuts")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    HStack(alignment: .center, spacing: 10){
+                        ShortCutView(
+                            color: Color.myPurple,
+                            status: "Today",
+                            iconName: "25.calendar",
+                            count: "11")
+                        ShortCutView(
+                            color: Color.myRed,
+                            status: "Recurring",
+                            iconName: "calendar",
+                            count: "2")
+                    }
+                    HStack(spacing: 10){
+                        ShortCutView(
+                            color: Color.myYellow,
+                            status: "Flagged",
+                            iconName: "flag",
+                            count: "3")
+                        ShortCutView(
+                            color: Color.myGreen,
+                            status: "Completed",
+                            iconName: "checkmark",
+                            count: "5")
+                    }
+                }
             }
         }
     }
