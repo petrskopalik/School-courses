@@ -27,6 +27,7 @@ obj/
 
 # C
 # Executables
+*.o
 *.out
 */builds/
 

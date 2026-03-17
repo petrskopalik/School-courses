@@ -9,9 +9,9 @@ final class HomeViewModel {
     
     let state = HomeViewState()
     
-    private let repositoryData: TaskRepositoryImpl
+    private let taskRepository: TaskRepository
     
-    init(repositoryData: TaskRepositoryImpl = TaskRepositoryImpl()) {
-        self.repositoryData = repositoryData
+    init(taskRepository: TaskRepository = TaskRepositoryImpl.shared) {
+        self.taskRepository = taskRepository
     }
 }

@@ -66,7 +66,7 @@ struct TaskView: View {
     }
 }
 
-struct ShortCutView: View {
+struct ShortcutView: View {
     let shortcut: Shortcut
     
     var body: some View {
@@ -102,10 +102,11 @@ struct HomeView: View {
                 Text("Tasks")
                     .font(.title)
                     .fontWeight(.bold)
+                    .padding(.horizontal)
                 
                 ScrollView {
                     LazyVStack(spacing: 15){
-                        ForEach(state.tasks) {
+                        ForEach(viewModel.state.tasks) {
                             task in TaskView(task: task)
                         }
                     }
@@ -115,17 +116,39 @@ struct HomeView: View {
                 Text("Shortcuts")
                     .font(.title)
                     .fontWeight(.bold)
+                    .padding(.horizontal)
                 
                 HStack(spacing: 10){
-                    ShortCutView(shortcut: state.shortcuts[0])
-                    ShortCutView(shortcut: state.shortcuts[1])
+                    ShortcutView(shortcut: Shortcut(
+                        category: .Today,
+                        categoryColor: Color.myPurple,
+                        iconName: "25.calendar",
+                        count: 11)
+                    )
+                    ShortcutView(shortcut: Shortcut(
+                        category: .Recurring,
+                        categoryColor: Color.myRed,
+                        iconName: "calendar",
+                        count: 2)
+                    )
                 }
+                .padding(.horizontal)
                 HStack(spacing: 10){
-                    ShortCutView(shortcut: state.shortcuts[2])
-                    ShortCutView(shortcut: state.shortcuts[3])
+                    ShortcutView(shortcut: Shortcut(
+                        category: .Flagged,
+                        categoryColor: Color.myYellow,
+                        iconName: "flag",
+                        count: 4)
+                    )
+                    ShortcutView(shortcut: Shortcut(
+                        category: .Completed,
+                        categoryColor: Color.myGreen,
+                        iconName: "checkmark",
+                        count: 5)
+                    )
                 }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
         }
         .background(Color(.systemGray6))
     }

@@ -6,21 +6,18 @@
 //
 
 import SwiftUI
+internal import Combine
 
 struct SummaryView: View {
-    @State private var searchText: String = ""
-    @State private var showRepeating: Bool = false
+    @ObservedObject var state: SummaryViewState
+    let viewModel: SummaryViewModel
     
-    var filteredTasks: [Task] {
-        TaskRepositoryImpl.shared.tasks
-            .filter { !showRepeating || $0.isRepeatOn }
-            .filter {
-                searchText.isEmpty ||
-                $0.title.localizedCaseInsensitiveContains(searchText) ||
-                $0.subtitle.localizedCaseInsensitiveContains(searchText) ||
-                $0.describtion.localizedCaseInsensitiveContains(searchText)
-            }
-    }
+    @State private var searchText: String = ""
+    @State private var showAll: Bool = true
+    @State private var showRepeating: Bool = false
+    @State private var showNonRepeating: Bool = false
+    @State private var filteredTasks: [Task]
+
     
     var body: some View {
         NavigationStack {
@@ -39,10 +36,13 @@ struct SummaryView: View {
             }
             .navigationTitle("Tasks")
             .searchable(text: $searchText, prompt: "Search tasks...")
+            .onChange(of: searchText) { oldValue, newValue in
+                viewModel.reloadData()
+            }
         }
     }
 }
 
 #Preview {
-    SummaryView()
+    SummaryView.build()
 }
