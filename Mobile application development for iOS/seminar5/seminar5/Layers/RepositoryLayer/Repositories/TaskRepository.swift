@@ -5,33 +5,6 @@
 //  Created by Petr Skopalík on 16.03.2026.
 //
 
-//protocol TemplateRepository {
-//    
-//    func fetchData() -> [String]
-//    func fetchNotes() throws -> [Note]
-//    func insertNote(_ note: Note) throws
-//}
-//
-//final class TemplateRepositoryImpl: TemplateRepository {
-//    
-//    // Vytvorime singleton abychom zajitili ze bude v cele aplikaci jen jedna instance
-//    private(set) static var shared: TemplateRepositoryImpl = TemplateRepositoryImpl()
-//    
-//    private let dbManager: DBManager = .shared
-//    
-//    func fetchData() -> [String] {
-//        return ["Hello", "World"]
-//    }
-//    
-//    func fetchNotes() throws -> [Note] {
-//       return try dbManager.fetchRecords(with: Note.self)
-//    }
-//    
-//    func insertNote(_ note: Note) throws {
-//        try dbManager.saveRecord(note)
-//    }
-//}
-
 import SwiftUI
 
 protocol TaskRepository {

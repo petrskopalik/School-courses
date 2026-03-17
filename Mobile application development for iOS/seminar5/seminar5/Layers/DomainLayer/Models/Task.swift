@@ -47,3 +47,11 @@ struct Task: Identifiable {
     let categoryColor: Color
     let isRepeatOn: Bool
 }
+
+struct Shortcut: Identifiable {
+    var id = UUID()
+    let category: Category
+    let categoryColor: Color
+    let iconName: String
+    let count: Int
+}
