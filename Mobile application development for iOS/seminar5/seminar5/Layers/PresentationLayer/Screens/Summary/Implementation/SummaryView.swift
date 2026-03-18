@@ -12,33 +12,35 @@ struct SummaryView: View {
     @ObservedObject var state: SummaryViewState
     let viewModel: SummaryViewModel
     
-    @State private var searchText: String = ""
-    @State private var showAll: Bool = true
-    @State private var showRepeating: Bool = false
-    @State private var showNonRepeating: Bool = false
-    @State private var filteredTasks: [Task]
-
-    
     var body: some View {
         NavigationStack {
-            List {
-                Section {
-                    Picker("", selection: $showRepeating) {
-                        Text("All").tag(false)
-                        Text("Repeating").tag(true)
+            VStack(spacing: 0) {
+                Picker("", selection: $state.searchFilter) {
+                    ForEach(SearchFilter.allCases, id: \.self) {
+                        filter in Text(filter.title).tag(filter)
                     }
-                    .pickerStyle(.segmented)
+                }
+                .pickerStyle(.segmented)
+                .onChange(of: state.searchFilter) { oldValue, newValue in
+                    viewModel.reloadData()
                 }
                 
-                ForEach(filteredTasks) { task in
-                    Text(task.title)
+                ScrollView {
+                    LazyVStack(spacing: 10) {
+                        ForEach(state.filteredTasks) { task in
+                            TaskView(task: task)
+                        }
+                    }
+                }
+                .padding(.top, 10)
+                
+                .navigationTitle("Tasks")
+                .searchable(text: $state.searchText, placement: .navigationBarDrawer, prompt: "Search tasks...")
+                .onChange(of: state.searchText) { oldValue, newValue in
+                    viewModel.reloadData()
                 }
             }
-            .navigationTitle("Tasks")
-            .searchable(text: $searchText, prompt: "Search tasks...")
-            .onChange(of: searchText) { oldValue, newValue in
-                viewModel.reloadData()
-            }
+            .background(Color(.systemGray6))
         }
     }
 }
