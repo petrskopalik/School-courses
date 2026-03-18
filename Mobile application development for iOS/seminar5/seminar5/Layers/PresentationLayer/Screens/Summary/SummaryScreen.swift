@@ -6,8 +6,10 @@
 //
 
 extension SummaryView {
+    
     static func build() -> SummaryView {
         let viewModel = SummaryViewModel()
-        return SummaryView(viewModel: viewModel)
+        return SummaryView(state: viewModel.state,
+                           viewModel: viewModel)
     }
 }
