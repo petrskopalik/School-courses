@@ -10,5 +10,7 @@ import Foundation
 internal import Combine
 
 final class SummaryViewState: ObservableObject {
-    @Published var tasks: [Task] = TaskRepositoryImpl.shared.tasks //do viewmodel ??
+    @Published var searchText: String = ""
+    @Published var searchFilter: SearchFilter = .All
+    @Published var filteredTasks: [Task] = []
 }
