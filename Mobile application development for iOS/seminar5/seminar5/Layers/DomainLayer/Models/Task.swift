@@ -35,7 +35,7 @@ struct Task: Identifiable {
     let id: Int
     let title: String
     let subtitle: String
-    let describtion: String
+    let description: String
     let dueDate: Date
     let dueTime: Date
     let frequency: Frequency
@@ -45,7 +45,7 @@ struct Task: Identifiable {
     let category: Category
     let iconName: String
     let categoryColor: Color
-    let isRepeatOn: Bool
+    let isRepeat: Bool
 }
 
 struct Shortcut: Identifiable {
