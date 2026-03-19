@@ -1,0 +1,4 @@
+﻿Analyzováno souborů: 2
+Celkem řádků: 14
+Celkem slov: 227
+Nejčastější slovo: lorem
