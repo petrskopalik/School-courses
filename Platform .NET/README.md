@@ -10,3 +10,4 @@ Tasks describtion:
   - 201 - creating inventory
   - 202 - LINQ
   - 204 - working with files
+  - 205 - XML, JSON
