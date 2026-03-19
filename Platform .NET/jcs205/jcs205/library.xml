@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.fio.cz//schema/importDB.xsd">
+   <Genre name="Sci-fi" count="5" avgRating="8.6">
+      <Book>
+         <Title>Duna</Title>
+         <Author>Frank Herbert</Author>
+         <Year>1965</Year>
+         <ISBN>9780441172719</ISBN>
+         <Rating>9.1</Rating>
+         <Pages>688</Pages>
+      </Book>
+      <Book>
+         <Title>Hyperion</Title>
+         <Author>Dan Simmons</Author>
+         <Year>1989</Year>
+         <ISBN>9780553283686</ISBN>
+         <Rating>8.9</Rating>
+         <Pages>482</Pages>
+      </Book>
+      <Book>
+         <Title>Nadace</Title>
+         <Author>Isaac Asimov</Author>
+         <Year>1951</Year>
+         <ISBN>9780808523086</ISBN>
+         <Rating>8.8</Rating>
+         <Pages>255</Pages>
+      </Book>
+      <Book>
+         <Title>Neuromancer</Title>
+         <Author>William Gibson</Author>
+         <Year>1984</Year>
+         <ISBN>9780441569595</ISBN>
+         <Rating>8.2</Rating>
+         <Pages>271</Pages>
+      </Book>
+      <Book>
+         <Title>451 stupňů Fahrenheita</Title>
+         <Author>Ray Bradbury</Author>
+         <Year>1953</Year>
+         <ISBN>9780345342966</ISBN>
+         <Rating>8</Rating>
+         <Pages>190</Pages>
+      </Book>
+   </Genre>
+   <Genre name="Fantasy" count="4" avgRating="8.85">
+      <Book>
+         <Title>Pán prstenů: Návrat krále</Title>
+         <Author>J. R. R. Tolkien</Author>
+         <Year>1955</Year>
+         <ISBN>9780261102378</ISBN>
+         <Rating>9.1</Rating>
+         <Pages>416</Pages>
+      </Book>
+      <Book>
+         <Title>Pán prstenů: Společenstvo prstenu</Title>
+         <Author>J. R. R. Tolkien</Author>
+         <Year>1954</Year>
+         <ISBN>9780261102354</ISBN>
+         <Rating>9</Rating>
+         <Pages>423</Pages>
+      </Book>
+      <Book>
+         <Title>Pán prstenů: Dvě věže</Title>
+         <Author>J. R. R. Tolkien</Author>
+         <Year>1954</Year>
+         <ISBN>9780261102361</ISBN>
+         <Rating>8.9</Rating>
+         <Pages>352</Pages>
+      </Book>
+      <Book>
+         <Title>Hobit</Title>
+         <Author>J. R. R. Tolkien</Author>
+         <Year>1937</Year>
+         <ISBN>9780345339683</ISBN>
+         <Rating>8.4</Rating>
+         <Pages>310</Pages>
+      </Book>
+   </Genre>
+   <Genre name="Detektivka" count="4" avgRating="8.27">
+      <Book>
+         <Title>Deset malých černoušků</Title>
+         <Author>Agatha Christie</Author>
+         <Year>1939</Year>
+         <ISBN>9780007136834</ISBN>
+         <Rating>8.5</Rating>
+         <Pages>272</Pages>
+      </Book>
+      <Book>
+         <Title>Pes baskervillský</Title>
+         <Author>Arthur Conan Doyle</Author>
+         <Year>1902</Year>
+         <ISBN>9780199536955</ISBN>
+         <Rating>8.3</Rating>
+         <Pages>256</Pages>
+      </Book>
+      <Book>
+         <Title>Vražda v Orient expresu</Title>
+         <Author>Agatha Christie</Author>
+         <Year>1934</Year>
+         <ISBN>9780007119318</ISBN>
+         <Rating>8.2</Rating>
+         <Pages>288</Pages>
+      </Book>
+      <Book>
+         <Title>Zpověď Sherlocka Holmese</Title>
+         <Author>Arthur Conan Doyle</Author>
+         <Year>1892</Year>
+         <ISBN>9780241952900</ISBN>
+         <Rating>8.1</Rating>
+         <Pages>320</Pages>
+      </Book>
+   </Genre>
+   <Genre name="Klasika" count="4" avgRating="8.55">
+      <Book>
+         <Title>1984</Title>
+         <Author>George Orwell</Author>
+         <Year>1949</Year>
+         <ISBN>9780451524935</ISBN>
+         <Rating>9</Rating>
+         <Pages>328</Pages>
+      </Book>
+      <Book>
+         <Title>Sto roků samoty</Title>
+         <Author>Gabriel García Márquez</Author>
+         <Year>1967</Year>
+         <ISBN>9780060883287</ISBN>
+         <Rating>8.7</Rating>
+         <Pages>417</Pages>
+      </Book>
+      <Book>
+         <Title>Zločin a trest</Title>
+         <Author>Fjodor Michajlovič Dostojevskij</Author>
+         <Year>1866</Year>
+         <ISBN>9780140449136</ISBN>
+         <Rating>8.6</Rating>
+         <Pages>671</Pages>
+      </Book>
+      <Book>
+         <Title>Sofie světa</Title>
+         <Author>Jostein Gaarder</Author>
+         <Year>1991</Year>
+         <ISBN>9780374530716</ISBN>
+         <Rating>7.9</Rating>
+         <Pages>403</Pages>
+      </Book>
+   </Genre>
+   <Genre name="Dobrodružství" count="3" avgRating="7.83">
+      <Book>
+         <Title>Cesta</Title>
+         <Author>Cormac McCarthy</Author>
+         <Year>2006</Year>
+         <ISBN>9780307387899</ISBN>
+         <Rating>8</Rating>
+         <Pages>287</Pages>
+      </Book>
+      <Book>
+         <Title>Knihy džunglí</Title>
+         <Author>Rudyard Kipling</Author>
+         <Year>1894</Year>
+         <ISBN>9780141325293</ISBN>
+         <Rating>7.8</Rating>
+         <Pages>320</Pages>
+      </Book>
+      <Book>
+         <Title>Jádro věci</Title>
+         <Author>Graham Greene</Author>
+         <Year>1948</Year>
+         <ISBN>9780142437988</ISBN>
+         <Rating>7.7</Rating>
+         <Pages>272</Pages>
+      </Book>
+   </Genre>
+   <Genre name="Thriller" count="3" avgRating="7.9">
+      <Book>
+         <Title>Mlčení jehňátek</Title>
+         <Author>Thomas Harris</Author>
+         <Year>1988</Year>
+         <ISBN>9780312924584</ISBN>
+         <Rating>8.1</Rating>
+         <Pages>367</Pages>
+      </Book>
+      <Book>
+         <Title>Dívka, která si hrála s ohněm</Title>
+         <Author>Stieg Larsson</Author>
+         <Year>2006</Year>
+         <ISBN>9780307454553</ISBN>
+         <Rating>8</Rating>
+         <Pages>569</Pages>
+      </Book>
+      <Book>
+         <Title>Sníh padá na cedry</Title>
+         <Author>David Guterson</Author>
+         <Year>1994</Year>
+         <ISBN>9780747519267</ISBN>
+         <Rating>7.6</Rating>
+         <Pages>368</Pages>
+      </Book>
+   </Genre>
+   <Genre name="Non-fiction" count="3" avgRating="8.27">
+      <Book>
+         <Title>Sapiens: Od zvířete k božskému jedinci</Title>
+         <Author>Yuval Noah Harari</Author>
+         <Year>2011</Year>
+         <ISBN>9780099590088</ISBN>
+         <Rating>8.6</Rating>
+         <Pages>498</Pages>
+      </Book>
+      <Book>
+         <Title>Černá labuť</Title>
+         <Author>Nassim Nicholas Taleb</Author>
+         <Year>2007</Year>
+         <ISBN>9780812973815</ISBN>
+         <Rating>8.2</Rating>
+         <Pages>480</Pages>
+      </Book>
+      <Book>
+         <Title>Tichá síla introvertů</Title>
+         <Author>Susan Cain</Author>
+         <Year>2012</Year>
+         <ISBN>9780307352156</ISBN>
+         <Rating>8</Rating>
+         <Pages>352</Pages>
+      </Book>
+   </Genre>
+</Library>
