@@ -68,6 +68,7 @@ class Program
                 if (word.Value > MaxOccurence)
                 {
                     TopAllWord = word.Key;
+                    MaxOccurence = word.Value;
                 }
             }
 
