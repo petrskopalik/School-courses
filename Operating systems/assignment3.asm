@@ -1,3 +1,5 @@
+section .text
+
 global obsah_obdelnika
 global obvod_ctverce
 global obsah_ctverce
