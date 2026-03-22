@@ -78,24 +78,21 @@ void print_humans(human *persons){
     if (persons->next) print_humans(persons->next);
 }
 
-int main(){
-    char test_int2bits_text[33];
-    int test_int2bits_number = 8;
+short encode_date(char day, char month, short year){
+    return year << 9 | month << 5 | day;
+}
 
-    int2bits(test_int2bits_text, test_int2bits_number);
-    printf("%s\n", test_int2bits_text);
+void decode_date(short date, int *day, int *month, int *year){
+    *day = date & 0b0000000000011111;
+    *month = (date >> 5) & 0b00000001111;
+    *year = date >> 9;
+}
 
-    char test_bits2int_n1[4] = "111";
-    char test_bits2int_n2[10] = "111001101";
-    char test_bits2int_n3[5] = "1110";
-    char test_bits2int_n4[8] = "0011101";
-    char test_bits2int_n5[12] = "11010011101";
+void my_memcpy(void *dest, void *src, size_t size){
+    unsigned char *x = dest;
+    unsigned char *y = src;
 
-    printf("Test1: %d\n", bits2int(test_bits2int_n1));
-    printf("Test2: %d\n", bits2int(test_bits2int_n2));
-    printf("Test3: %d\n", bits2int(test_bits2int_n3));
-    printf("Test4: %d\n", bits2int(test_bits2int_n4));
-    printf("Test5: %d\n", bits2int(test_bits2int_n5));
-
-    return 0;
+    for (int i = 0; i < size; i++, x++, y++){
+        *x = *y;
+    }
 }
