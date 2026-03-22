@@ -18,9 +18,11 @@ swap:
 division:
     mov eax, edi            ;do eax nacteme hodnotu prvniho argumentu
     xor edx, edx            ;vynulování edx
+    mov r8, rdx             ;ulozeni adresy prvniho argumentu
+    mov r9, rcx             ;ulozeni adresy prvniho argumentu
     div esi                 ;vydelime hodnotou druheho argumentu
-    mov dword [rdx], eax    ;ulozime result
-    mov dword [rcx], edx    ;ulozime remaider
+    mov dword [r8], eax     ;ulozime result
+    mov dword [r9], edx     ;ulozime remaider
     ret
 
 section .note.GNU-stack noalloc noexec nowrite progbits
