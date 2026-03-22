@@ -39,6 +39,7 @@ obsah_trojuhelnika:
     mov eax, edi    ;ulozime prvni argument do eax
     imul eax, esi   ;vynasobime hodnotu v eax hodnotou druheho argumentu
     mov ecx, 2      ;do ecx uloz 2
+    xor edx, edx
     div ecx         ;vydelime 2
     ret
 
@@ -52,6 +53,7 @@ avg:
     mov eax, edi    ;ulozime prvni argument do eax
     add eax, esi    ;pricteme druhy argument
     add eax, edx    ;pricteme treti argument
+    xor edx, edx
     mov ecx, 3      ;do ecx ulozime 3
     div ecx         ;hodnotu v eax vydelime 3
     ret

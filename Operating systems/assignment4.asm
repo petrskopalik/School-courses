@@ -8,13 +8,12 @@ global mocnina
 
 sgn:
     cmp edi, 0      ;porovnáme prvni argument s 0
-    jnz sgn_zero    ;skok na vraceni 0
+    jl sgn_minus    ;skok na vraceni 0
     jg sgn_plus     ;skok na vraceni 1
+    mov eax, 0      ;ulozeni 0
+    ret
 sgn_minus:
     mov eax, -1     ;ulozeni -1
-    ret
-sgn_zero:
-    mov eax, 0      ;ulozeni 0
     ret
 sgn_plus:
     mov eax, 1      ;ulozeni 1
@@ -23,10 +22,9 @@ sgn_plus:
 max2c:
     mov al, dil         ;ulozime prvni argument (char) do al
     cmp al, sil         ;porovname s druhym argumentem
-    ja max2c_second_arg ;skok na vraceni druheho argumentu
-    ret
-max2c_second_arg:
+    ja max2c_end        ;skok na vraceni prvniho argumentu
     mov al, sil         ;ulozeni druheho argumentu
+max2c_end:
     ret
 
 min3us:
@@ -58,12 +56,12 @@ mocnina:
     mov eax, edi    ;ulozeni mocnence
     mov ecx, esi    ;ulozeni mocnitele
     cmp ecx, 0      ;porovnani mocnitele s 0
-    jge mocnina_0   ;mocnitel je 0
+    jz mocnina_0    ;mocnitel je 0
     mov edx, eax    ;ulozime mocnence pro loop
 m_loop:
     dec ecx         ;odecteme od mocnitele 1
     cmp ecx, 0      ;porovname mocnitele s 0
-    jbe m_loop_end  ;pokud mocnitel = 0 -> konec
+    jbe m_loop_end  ;pokud mocnitel <= 0 -> konec
     imul eax, edx   ;vynasobime hodnotu v eax hodnotou mocnence pred loop
     jmp m_loop      ;opakujeme loop
 m_loop_end:
