@@ -27,7 +27,7 @@ obsah_ctverce:
 obvod_trojuhelnika:
     mov eax, edi    ;ulozime prvni argument do eax
     add eax, esi    ;k hodnote v eax pricteme druhy argument
-    add eax, rdx    ;k hodnote v eax pricteme treti argument
+    add eax, edx    ;k hodnote v eax pricteme treti argument
     ret
 
 obvod_trojuhelnika2:
@@ -55,3 +55,5 @@ avg:
     mov ecx, 3      ;do ecx ulozime 3
     div ecx         ;hodnotu v eax vydelime 3
     ret
+
+section .note.GNU-stack noalloc noexec nowrite progbits

@@ -2,11 +2,11 @@ section .text
 
 global swap
 global division
-global countdown
-global nasobky
-global minimum
-global my_strlen
-global my_strcat
+;global countdown
+;global nasobky
+;global minimum
+;global my_strlen
+;global my_strcat
 
 swap:
     mov eax, dword [rdi]    ;do eax nacteme hodnotu prvniho argumentu
@@ -17,7 +17,10 @@ swap:
 
 division:
     mov eax, edi            ;do eax nacteme hodnotu prvniho argumentu
+    xor edx, edx            ;vynulování edx
     div esi                 ;vydelime hodnotou druheho argumentu
     mov dword [rdx], eax    ;ulozime result
     mov dword [rcx], edx    ;ulozime remaider
     ret
+
+section .note.GNU-stack noalloc noexec nowrite progbits

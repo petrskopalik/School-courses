@@ -77,3 +77,5 @@ mocnina_0:
 mocnina_ok:
     mov eax, 1      ;cokoliv (mimo 0) na 0 je 1
     ret
+
+section .note.GNU-stack noalloc noexec nowrite progbits
