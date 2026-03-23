@@ -21,10 +21,10 @@ extern int mocnina(int n, unsigned int m);
 // assignment5.asm
 extern void swap(int *a, int *b);
 extern void division(unsigned int x, unsigned int y, unsigned int *result, unsigned int *remainder);
-// extern void countdown(int *values);
-// extern void nasobky(short *multiples, short n);
-// extern int minimum(int count, int *values);
-// extern unsigned int my_strlen(char *s);
+extern void countdown(int *values);
+extern void nasobky(short *multiples, short n);
+extern int minimum(int count, int *values);
+extern unsigned int my_strlen(char *s);
 // extern void my_strcat(char *dest, char *src);
 
 #endif

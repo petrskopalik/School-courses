@@ -6,9 +6,9 @@
 
 int main(int argc, char const *argv[])
 {
-    // printf("=============== ASSIGNMENT X TESTS START ===============\n");
-    // printf("=============== ASSIGNMENT X TESTS END   ===============\n\n");
-    printf("=============== ASSIGNMENT 1 TESTS START ===============\n");
+    // printf("========== ASSIGNMENT X TESTS START ==========\n");
+    // printf("========== ASSIGNMENT X TESTS END   ==========\n\n");
+    printf("========== ASSIGNMENT 1 TESTS START ==========\n");
     char test_int2bits_text[33];
     int test_int2bits_number = 8;
 
@@ -37,9 +37,9 @@ int main(int argc, char const *argv[])
     int d, m, y;
     decode_date(code, &d, &m, &y);
     printf("Odzakodovane datum: Den = %d, Mesic = %d, Rok = %d\n", d, m, y);
-    printf("=============== ASSIGNMENT 1 TESTS END   ===============\n\n");
+    printf("========== ASSIGNMENT 1 TESTS END   ==========\n\n");
 
-    printf("=============== ASSIGNMENT 3 TESTS START ===============\n");
+    printf("========== ASSIGNMENT 3 TESTS START ==========\n");
     assert(6 == obsah_obdelnika(2, 3));
     assert(16 == obvod_ctverce(4));
     assert(16 == obsah_ctverce(4));
@@ -48,9 +48,9 @@ int main(int argc, char const *argv[])
     assert(6 == obsah_trojuhelnika(3, 4));
     assert(27 == objem_krychle(3));
     assert(2 == avg(1, 2, 3));
-    printf("=============== ASSIGNMENT 3 TESTS END   ===============\n\n");
+    printf("========== ASSIGNMENT 3 TESTS END   ==========\n\n");
 
-    printf("=============== ASSIGNMENT 4 TESTS START ===============\n");
+    printf("========== ASSIGNMENT 4 TESTS START ==========\n");
     assert(0 == sgn(0));
     assert(1 == sgn(20));
     assert(-1 == sgn(-4));
@@ -62,20 +62,46 @@ int main(int argc, char const *argv[])
     assert(512 == mocnina(2, 9));
     assert(1 == mocnina(100, 0));
     assert(-1 == mocnina(0, 0));
-    printf("=============== ASSIGNMENT 4 TESTS END   ===============\n\n");
+    printf("========== ASSIGNMENT 4 TESTS END   ==========\n\n");
 
-    printf("=============== ASSIGNMENT 5 TESTS START ===============\n");
-    int a = 10;
-    int b = -10;
-    swap(&a, &b);
-    assert(-10 == a);
-    assert(10 == b);
-    printf("pass");
-    unsigned int result, remaider = 0;
-    division(10, 9, &result, &remaider);
-    assert(1 == result);
-    assert(1 == remaider);
-    printf("=============== ASSIGNMENT 5 TESTS END   ===============\n\n");
+    printf("========== ASSIGNMENT 5 TESTS START ==========\n");
+    int swap_a = 10;
+    int swap_b = -10;
+    swap(&swap_a, &swap_b);
+    assert(-10 == swap_a);
+    assert(10 == swap_b);
+
+    unsigned int division_result = 0;
+    unsigned int division_remaider = 0;
+    division(10, 9, &division_result, &division_remaider);
+    assert(1 == division_result);
+    assert(1 == division_remaider);
+
+    int countdown_result[10];
+    int countdown_expected[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    countdown(&(countdown_result[0]));
+    for (size_t i = 0; i < 10; i++){
+        assert(countdown_expected[i] == countdown_result[i]);
+    }
+
+    short nasobky_result[10];
+    // short nasobky_expected[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; // 1
+    short nasobky_expected[10] = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50}; // 5
+    nasobky(&(nasobky_result[0]), 5);
+    for (size_t i = 0; i < 10; i++){
+        // printf("%hd ", nasobky_result[i]);
+        assert(nasobky_expected[i] == nasobky_result[i]);
+    }
+    // printf("\n");
+
+    int minimum_args[10] = {5, 6, 3, 2, 10, -1, 2, 8, 9, 0};
+    int minimum_result = -1;
+    assert(minimum_result == minimum(10, &(minimum_args[0])));
+
+    char my_strlen_arg[3] = "ab";
+    unsigned int my_strlen_result = 2;
+    assert(my_strlen_result == my_strlen(&(my_strlen_arg[0])));
+    printf("========== ASSIGNMENT 5 TESTS END   ==========\n\n");
 
     return 0;
 }
