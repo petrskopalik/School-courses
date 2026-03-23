@@ -96,13 +96,28 @@ struct HomeView: View {
     @ObservedObject var state: HomeViewState
     let viewModel: HomeViewModel
     
+    @State var showAddTask: Bool = false
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10){
-                Text("Tasks")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.horizontal)
+                HStack(alignment: .center) {
+                    Text("Tasks")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                    
+                    Button("", systemImage: "plus"){
+                        showAddTask.toggle()
+                    }
+                    .font(.system(size: 40))
+                    .tint(.black)
+                    .fullScreenCover(isPresented: $showAddTask) {
+                        CreateTaskView()
+                    }
+                }
+                .padding(.horizontal)
                 
                 ScrollView {
                     LazyVStack(spacing: 15){

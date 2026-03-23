@@ -18,7 +18,7 @@ struct TaskDetails: View {
                 .font(.headline)
                 .foregroundStyle(.darkGrey)
                 .frame(alignment: .leading)
-                .padding([.leading, .top], 10)
+                .padding(.leading, 10)
             ZStack(alignment: .top) {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.white)
@@ -201,11 +201,22 @@ struct AditionalSettings: View {
 }
 
 struct CreateTaskView: View {
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ScrollView {
             ZStack(alignment: .top) {
                 VStack {
+                    HStack {
+                        Spacer()
+                        Button("", systemImage: "xmark.circle") {
+                            dismiss()
+                        }
+                        .font(.system(size: 40))
+                        .tint(.red)
+                    }
+                    .padding(.horizontal)
+                    
                     TaskDetails()
                     DateSettings()
                     AditionalSettings()

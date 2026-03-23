@@ -16,9 +16,6 @@ struct ContentView: View {
             Tab("Summary", systemImage: "list.star") {
                 SummaryView.build()
             }
-            Tab("New Task", systemImage: "square.and.pencil") {
-                CreateTaskView()
-            }
         }
     }
 }
