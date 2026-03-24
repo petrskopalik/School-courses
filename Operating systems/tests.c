@@ -103,5 +103,15 @@ int main(int argc, char const *argv[])
     assert(my_strlen_result == my_strlen(&(my_strlen_arg[0])));
     printf("========== ASSIGNMENT 5 TESTS END   ==========\n\n");
 
+    printf("========== ASSIGNMENT 6 TESTS START ==========\n");
+    print_row(5, 'a');
+    printf("\n");
+    print_rect(5, 5);
+    printf("\n");
+    printf("%u\n", factorial(5));
+    // assert(120 == factorial(5));
+
+    printf("========== ASSIGNMENT 6 TESTS END   ==========\n\n");
+
     return 0;
 }
