@@ -1,7 +1,7 @@
 # tools
 CC = gcc
 ASM = nasm
-CFLAGS = -Wall -g -m64
+CFLAGS = -Wall -g -m64 -no-pie
 ASMFLAGS = -f elf64
 
 # directories
@@ -10,7 +10,7 @@ OBJ_DIR = obj
 
 # files
 C_SRCS = assignment1.c tests.c
-ASM_SRCS = assignment3.asm assignment4.asm assignment5.asm
+ASM_SRCS = assignment3.asm assignment4.asm assignment5.asm assignment6.asm
 
 C_OBJ = $(addprefix $(OBJ_DIR)/, $(C_SRCS:.c=.o))
 ASM_OBJ = $(addprefix $(OBJ_DIR)/, $(ASM_SRCS:.asm=.o))

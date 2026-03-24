@@ -27,4 +27,12 @@ extern int minimum(int count, int *values);
 extern unsigned int my_strlen(char *s);
 // extern void my_strcat(char *dest, char *src);
 
+// assignment6.asm
+extern void print_row(int n, char c);
+extern void print_rect(int rows, int cols);
+extern unsigned int factorial(unsigned int n);
+extern char *my_strdup(char *s);
+extern unsigned int fib(unsigned short n);
+extern void print_facts(unsigned char n);
+
 #endif
