@@ -108,8 +108,11 @@ int main(int argc, char const *argv[])
     printf("\n");
     print_rect(5, 5);
     printf("\n");
-    printf("%u\n", factorial(5));
-    // assert(120 == factorial(5));
+    // printf("%u\n", factorial(5));
+    assert(120 == factorial(5));
+    char my_strdup_arg[13] = "Hello world!";
+    char *my_strdup_result = my_strdup(&(my_strdup_arg[0]));
+    printf("%s\n", my_strdup_result);
 
     printf("========== ASSIGNMENT 6 TESTS END   ==========\n\n");
 
