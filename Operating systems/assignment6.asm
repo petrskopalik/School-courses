@@ -1,4 +1,6 @@
 extern putchar
+extern malloc
+extern strlen
 
 section .text
 
@@ -9,6 +11,7 @@ global my_strdup
 global fib
 global print_facts
 
+; void print_row(int n, char c)
 print_row:
     mov edx, edi        ;ulozeni prvniho argumentu - n
     mov ecx, esi        ;ulozeni druheho argumentu - char
@@ -28,6 +31,7 @@ print_row_loop:
     call putchar        ;tisk /n
     ret
 
+; void print_rect(int rows, int cols)
 print_rect:
     mov edx, edi        ;ulozeni prvniho argumentu - rows
     mov ecx, esi        ;ulozeni druheho argumentu - cols
@@ -45,9 +49,10 @@ print_rect_loop:
     jg print_rect_loop  ;pokud rows > 0 - opakuj loop
     ret
 
+; unsigned int factorial(unsigned int n)
 factorial:
     mov eax, 1          ;ulozeni vysledku
-    mov ecx, esi        ;ulozeni argumentu - n
+    mov ecx, edi        ;ulozeni argumentu - n
 factorial_loop:
     cmp ecx, 1          ;porovnani n s 1
     jle factorial_end   ;pokud n <= 1 -> konec
@@ -56,5 +61,33 @@ factorial_loop:
     jmp factorial_loop  ;opakuj loop
 factorial_end:
     ret
+
+; char *my_strdup(char *s)
+my_strdup:
+    push rdi            ;uloz argument *s na zasobnik
+    mov al, 0           ;0 arg s plovouci radkovou carkou
+    call strlen         ;zavolani strlen
+    mov r8, rax         ;ulozeni vysledku (delky retezce) strlen do r8
+    push r8             ;ulozeni r8 na zasobnik
+    mov edi, eax        ;predani argumentu pro malloc
+    mov al, 0           ;0 arg s plovouci radkovou carkou
+    call malloc         ;zavolani malloc, vrati adresu v rax
+    pop r8              ;vraceni delky retezce do r8
+    pop rdi             ;vraceni argumentu *s do rdi
+    cmp r8, 0           ;porovnani delky retezce s 0
+    je my_strdup_end    ;skok na konec
+    mov rcx, 0          ;aktualni index v retezci
+    ;pouzito rax - adresa nove pameti, rdi - adresa retezce, r8 - delka retezce, rcx - index retezce     
+my_strdup_loop:
+    mov dl, byte [rdi + rcx * 1]   ;ulozeni aktualniho char (z puvodniho retezce) do dl
+    mov byte [rax + rcx * 1], dl    ;ulozeni char do noveho retezce
+    inc rcx                         ;inkrementace indexu
+    cmp rcx, r8                     ;porovnani indexu a delky retezce
+    je my_strdup_end                ;pokud ano tak konec
+    jmp my_strdup_loop              ;opakuj loop
+my_strdup_end:
+    ret
+
+    
 
 section .note.GNU-stack noalloc noexec nowrite progbits
