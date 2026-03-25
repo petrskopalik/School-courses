@@ -6,6 +6,7 @@ global min3us
 global kladne
 global mocnina
 
+; int sgn(int i)
 sgn:
     cmp edi, 0      ;porovnáme prvni argument s 0
     jl sgn_minus    ;skok na vraceni 0
@@ -19,6 +20,7 @@ sgn_plus:
     mov eax, 1      ;ulozeni 1
     ret
 
+; char max2c(char a, char b)
 max2c:
     mov al, dil         ;ulozime prvni argument (char) do al
     cmp al, sil         ;porovname s druhym argumentem
@@ -27,6 +29,7 @@ max2c:
 max2c_end:
     ret
 
+; unsigned short min3us(unsigned short a, unsigned short b, unsigned short c)
 min3us:
     mov eax, edi    ;ulozeni prvniho argumentu do eax
     cmp eax, esi    ;porovnani s druhym argumentem
@@ -39,6 +42,7 @@ min3us_next:
 min3us_end:
     ret
 
+; int kladne(int a, int b, int c)
 kladne:
     cmp edi, 0  ;porovnani prniho argumentu s 0
     jle zaporne ;skok na vraceni nepravdy
@@ -52,6 +56,7 @@ zaporne:
     mov eax, 0  ;ulozeni 0
     ret
 
+; int mocnina(int n, unsigned int m)
 mocnina:
     mov eax, edi    ;ulozeni mocnence
     mov ecx, esi    ;ulozeni mocnitele

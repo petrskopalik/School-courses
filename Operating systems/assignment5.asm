@@ -8,6 +8,7 @@ global minimum
 global my_strlen
 ;global my_strcat
 
+; void swap(int *a, int *b)
 swap:
     mov eax, dword [rdi]    ;do eax nacteme hodnotu prvniho argumentu
     mov edx, dword [rsi]    ;do edx nacteme hodnotu druheho argumentu
@@ -15,6 +16,7 @@ swap:
     mov dword [rsi], eax    ;do rsi ulozime hodnotu prvniho argumentu
     ret
 
+; void division(unsigned int x, unsigned int y, unsigned int *result, unsigned int *remainder)
 division:
     mov eax, edi            ;do eax nacteme hodnotu prvniho argumentu
     mov r8, rdx             ;ulozeni adresy prvniho argumentu
@@ -25,6 +27,7 @@ division:
     mov dword [r9], edx     ;ulozime remaider
     ret
 
+; void countdown(int *values)
 countdown:
     mov eax, 0                      ;ulozeni indexu do eax
     mov r8d, 10                     ;ulozeni 10 do r8d
@@ -38,6 +41,7 @@ countdown_loop:
 countdown_end:
     ret
 
+; void nasobky(short *multiples, short n)
 nasobky:
     mov eax, 0                      ;index
     mov r8w, si                     ;ulozeni
@@ -51,6 +55,7 @@ nasobky_loop:
 nasobky_end:
     ret
 
+; int minimum(int count, int *values)
 minimum:
     mov eax, dword [rsi]            ;minumum
     mov ecx, 1                      ;index    
@@ -67,6 +72,7 @@ minimum_continue:
 minimum_end:
     ret
 
+; unsigned int my_strlen(char *s)
 my_strlen:
     mov eax, 0                      ;pocet a index
 my_strlen_loop:
@@ -77,5 +83,8 @@ my_strlen_loop:
     jmp my_strlen_loop              ;opakovani loop
 my_strlen_end:
     ret
+
+; void my_strcat(char *dest, char *src)
+
 
 section .note.GNU-stack noalloc noexec nowrite progbits
