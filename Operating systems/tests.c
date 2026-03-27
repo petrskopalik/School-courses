@@ -113,6 +113,7 @@ int main(int argc, char const *argv[])
     char my_strdup_arg[13] = "Hello world!";
     char *my_strdup_result = my_strdup(&(my_strdup_arg[0]));
     printf("%s\n", my_strdup_result);
+    printf("%u\n", fib(5));
 
     printf("========== ASSIGNMENT 6 TESTS END   ==========\n\n");
 
