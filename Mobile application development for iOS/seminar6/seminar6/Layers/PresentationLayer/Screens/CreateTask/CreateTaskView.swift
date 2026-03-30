@@ -53,7 +53,6 @@ struct OnRepeat: View {
     @Binding var frequency: Frequency
     @Binding var startDate: Date
     @Binding var times: Int
-//    @Binding var dueTime: Date
     
     func incrementStep() {
         times += 1
@@ -78,9 +77,6 @@ struct OnRepeat: View {
                            selection: $startDate,
                            displayedComponents: .date)
                     .font(.system(size: 20))
-//                DatePicker("Time",
-//                           selection: $dueTime,
-//                           displayedComponents: .hourAndMinute)
                 Picker("Frequency", selection: $frequency) {
                     ForEach(Frequency.allCases, id: \.self) { f in
                         Text(f.rawValue)
