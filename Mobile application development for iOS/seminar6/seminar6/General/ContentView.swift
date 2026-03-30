@@ -13,11 +13,11 @@ struct ContentView: View {
             Tab("Home", systemImage: "house") {
                 HomeView.build()
             }
-            Tab("Summary", systemImage: "list.star") {
+            Tab("Tasks", systemImage: "list.star") {
                 SummaryView.build()
             }
             Tab("Settings", systemImage: "slider.horizontal.3") {
-                SummaryView.build()
+                SettingsView()
             }
         }
     }
