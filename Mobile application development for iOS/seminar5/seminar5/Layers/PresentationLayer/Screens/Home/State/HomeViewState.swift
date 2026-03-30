@@ -10,5 +10,5 @@ import Foundation
 internal import Combine
 
 final class HomeViewState: ObservableObject {
-    @Published var tasks: [Task] = TaskRepositoryImpl.shared.tasks //do viewmodel
+    @Published var tasks: [Task] = TaskRepositoryImpl.shared.tasks
 }
