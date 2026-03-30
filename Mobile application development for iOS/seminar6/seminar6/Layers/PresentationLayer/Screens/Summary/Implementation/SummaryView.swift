@@ -28,12 +28,14 @@ struct SummaryView: View {
                 ScrollView {
                     LazyVStack(spacing: 10) {
                         ForEach(state.filteredTasks) { task in
-                            TaskView(task: task)
+                            NavigationLink(destination: TaskDetailView(task: task)) {
+                                TaskComponent(task: task)
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                 }
                 .padding(.top, 10)
-                
                 .navigationTitle("Tasks")
                 .searchable(text: $state.searchText, placement: .navigationBarDrawer, prompt: "Search tasks...")
                 .onChange(of: state.searchText) { oldValue, newValue in
